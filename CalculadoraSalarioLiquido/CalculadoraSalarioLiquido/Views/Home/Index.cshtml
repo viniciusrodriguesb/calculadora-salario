@@ -2,7 +2,40 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="card">
+    <h3>Salário Líquido</h3>
+
+    <form action="/" method="post">
+
+        <div class="mb-3">
+            <label for="salarioBruto" class="form-label">Salário bruto</label>
+            <div>
+                <input type="text" id="salarioBruto" placeholder="Ex: 8599" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="horas50" class="form-label">Horas 50%</label>
+            <div>
+                <input type="text" id="horas50" placeholder="Ex: 10 horas" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="horas100" class="form-label">Horas 100%</label>
+            <div>
+                <input type="text" id="horas100" placeholder="Ex: 5 horas" />
+            </div>
+        </div>
+
+        <button type="button" class="btn w-100 calcular">
+            <span>Calcular</span>
+        </button>
+    </form>
+
+    <div class="mt-4 total">       
+        <p><strong>Total:</strong></p>
+        <p><strong>R$ 6.401,10</strong></p>       
+    </div>
+
 </div>
