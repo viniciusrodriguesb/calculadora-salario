@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using Application.DTO.Request;
+using Application.Services;
 using CalculadoraSalarioLiquido.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,19 +8,29 @@ namespace CalculadoraSalarioLiquido.Controllers
 {
     public class HomeController : Controller
     {
+
+        #region Construtor
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger)
+        private readonly CalculoService _calculoService;
+        public HomeController(ILogger<HomeController> logger, CalculoService calculoService)
         {
+            _calculoService = calculoService;
             _logger = logger;
         }
+        #endregion
 
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Index(CalculoSalarioRequest request)
         {
+            var result = _calculoService.ObterValorSalarioLiquido(request);
+
+            ViewBag.SalarioLiquido = result;
+
             return View();
         }
 

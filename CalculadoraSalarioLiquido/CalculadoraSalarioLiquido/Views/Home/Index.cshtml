@@ -1,41 +1,53 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Application.DTO.Request.CalculoSalarioRequest
+
+@{
+    ViewData["Title"] = "Calc. Salário Liquido";
 }
 
-<div class="card">
-    <h3>Salário Líquido</h3>
-
-    <form action="/" method="post">
-
-        <div class="mb-3">
-            <label for="salarioBruto" class="form-label">Salário bruto</label>
-            <div>
-                <input type="text" id="salarioBruto" placeholder="Ex: 8599" />
-            </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="horas50" class="form-label">Horas 50%</label>
-            <div>
-                <input type="text" id="horas50" placeholder="Ex: 10 horas" />
-            </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="horas100" class="form-label">Horas 100%</label>
-            <div>
-                <input type="text" id="horas100" placeholder="Ex: 5 horas" />
-            </div>
-        </div>
-
-        <button type="button" class="btn w-100 calcular">
-            <span>Calcular</span>
-        </button>
-    </form>
-
-    <div class="mt-4 total">       
-        <p><strong>Total:</strong></p>
-        <p><strong>R$ 6.401,10</strong></p>       
+<div style="margin-bottom: 2rem;">
+    <div class="info">
+        <h3>Bem-vindo a nossa Calculadora de Salário!</h3>
+        <p>Nosso objetivo é simplificar o processo de cálculo dos seus descontos e determinar o valor líquido do seu salário de forma rápida e precisa. Com base nas alíquotas atuais de INSS e IRRF, nosso sistema leva em consideração o seu salário bruto para calcular o valor do INSS e o IRRF a ser descontado, proporcionando uma visão clara do seu rendimento líquido.</p>
+        <p>Através de uma interface simples e intuitiva, você pode inserir os dados necessários e obter os cálculos em tempo real. O sistema é totalmente ajustado às legislações mais recentes e garante que o cálculo seja feito de acordo com as faixas e deduções em vigor.</p>
+        <p>Faça o cálculo agora mesmo e tenha controle sobre seus vencimentos!</p>
     </div>
 
+    <div class="card">
+        <form action="/" method="post" class="w-100">
+
+            <div class="mb-3">
+                <label for="salarioBruto" class="form-label titulo-label">Salário bruto*</label>
+                <div>
+                    <input type="text" id="SalarioBase" asp-for="SalarioBase" />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="horas50" class="form-label titulo-label">Horas 50%</label>
+                <div>
+                    <input type="text" id="HorasCinquentaPorcento" asp-for="HorasCinquentaPorcento" />
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="horas100" class="form-label titulo-label">Horas 100%</label>
+                <div>
+                    <input type="text" id="HorasCemPorcento" asp-for="HorasCemPorcento" />
+                </div>
+            </div>
+
+            <button type="submit" class="btn w-100 calcular">
+                <span>Calcular</span>
+            </button>
+        </form>
+
+        @if (ViewBag.SalarioLiquido != null)
+        {
+            <div class="mt-4 total">
+                <p><strong>Total:</strong></p>
+                <p><strong>R$ @ViewBag.SalarioLiquido</strong></p>
+            </div>
+        }
+
+    </div>
 </div>
