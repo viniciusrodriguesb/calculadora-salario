@@ -4,50 +4,70 @@
     ViewData["Title"] = "Calc. Salário Liquido";
 }
 
-<div style="margin-bottom: 2rem;">
-    <div class="info">
-        <h3>Bem-vindo a nossa Calculadora de Salário!</h3>
-        <p>Nosso objetivo é simplificar o processo de cálculo dos seus descontos e determinar o valor líquido do seu salário de forma rápida e precisa. Com base nas alíquotas atuais de INSS e IRRF, nosso sistema leva em consideração o seu salário bruto para calcular o valor do INSS e o IRRF a ser descontado, proporcionando uma visão clara do seu rendimento líquido.</p>
-        <p>Através de uma interface simples e intuitiva, você pode inserir os dados necessários e obter os cálculos em tempo real. O sistema é totalmente ajustado às legislações mais recentes e garante que o cálculo seja feito de acordo com as faixas e deduções em vigor.</p>
-        <p>Faça o cálculo agora mesmo e tenha controle sobre seus vencimentos!</p>
+<div class="card-form">
+    <div class="titulo">
+
+        <div class="titulo-img">
+            <img src="~/assets/money.png" alt="Dinheiro">
+            <h1>Calcule seu salário</h1>
+            <hr>
+        </div>
+
+        <div class="titulo-text">
+            <p>Nosso objetivo é simplificar o processo de cálculo dos seus descontos e determinar o valor líquido do seu salário de forma rápida e precisa. Com base nas alíquotas atuais de INSS e IRRF, nosso sistema leva em consideração o seu salário bruto para calcular o valor do INSS e o IRRF a ser descontado, proporcionando uma visão clara do seu rendimento líquido.</p>
+            <p>Através de uma interface simples e intuitiva, você pode inserir os dados necessários e obter os cálculos em tempo real. O sistema é totalmente ajustado às legislações mais recentes e garante que o cálculo seja feito de acordo com as faixas e deduções em vigor.</p>
+            <p>Faça o cálculo agora mesmo e tenha controle sobre seus vencimentos!</p>
+        </div>
     </div>
-
-    <div class="card">
-        <form action="/" method="post" class="w-100">
-
+    <div>
+        <form action="/" method="post">
             <div class="mb-3">
                 <label for="salarioBruto" class="form-label titulo-label">Salário bruto*</label>
                 <div>
-                    <input type="text" id="SalarioBase" asp-for="SalarioBase" />
+                    <input type="text" id="SalarioBase" asp-for="SalarioBase" placeholder="    Ex: 4.856,93" />
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="horas50" class="form-label titulo-label">Horas 50%</label>
                 <div>
-                    <input type="text" id="HorasCinquentaPorcento" asp-for="HorasCinquentaPorcento" />
+                    <input type="text" id="HorasCinquentaPorcento" asp-for="HorasCinquentaPorcento" placeholder="    Ex: 10" />
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="horas100" class="form-label titulo-label">Horas 100%</label>
                 <div>
-                    <input type="text" id="HorasCemPorcento" asp-for="HorasCemPorcento" />
+                    <input type="text" id="HorasCemPorcento" asp-for="HorasCemPorcento" placeholder="    Ex: 5" />
                 </div>
             </div>
 
-            <button type="submit" class="btn w-100 calcular">
-                <span>Calcular</span>
-            </button>
-        </form>
+            @if (ViewBag.SalarioLiquido != null)
+            {
+                <div class="mt-4 total">
+                    <p><strong>Total:</strong></p>
+                    <p><strong>R$ @ViewBag.SalarioLiquido</strong></p>
+                </div>
+            }
 
-        @if (ViewBag.SalarioLiquido != null)
-        {
-            <div class="mt-4 total">
-                <p><strong>Total:</strong></p>
-                <p><strong>R$ @ViewBag.SalarioLiquido</strong></p>
+            <div class="buttons">
+                <button class="button-trash">
+                    Limpar
+                    <img src="~/assets/trash.png" alt="Lixeira">
+                </button>
+                <button class="button-result" type="submit">
+                    <img src="~/assets/cifrao.png" alt="Cifrão">
+                    Calcular
+                </button>
             </div>
-        }
-
+        </form>
     </div>
+
+    <footer class="footer text-muted">
+        <span>&copy; 2025 - Todos os direitos reservados.</span>
+    </footer>
+
+</div>
+<div class="card-image">
+    <img src="~/assets/background.png" alt="Imagem de gráfico">
 </div>

@@ -1,119 +1,124 @@
 html {
+    position: relative;
+    min-height: 100%;
     font-size: 0.875rem;
 }
 
-.logo {
-    margin-left: 5%;
+body {
+    margin-bottom: 3.75rem;
+    background-color: #FFF;
 }
 
-.card {
-    position: relative;
+main {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 4%;
-    max-width: 25rem;
-    padding: 1.25rem;
-    background: #E9F3FF;
-    border-radius: 1.875rem;
-    border: none;
 }
 
-.info {
-    margin-top: 2rem;
+.card-form {
+    margin-top: 3.75rem;
 }
 
-    .info p {
-        font-size: 1rem;
-    }
-
-.titulo-label {
-    margin-left: 0.813rem;
-    font-weight: bold;
-}
-
-input {
-    border-radius: 1.25rem;
-    outline: none;
-    width: 80%;
-    height: 2.813rem;
-    margin-bottom: 1.25rem;
-    border-color: #056AD9;
-}
-
-.calcular {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    overflow: hidden;
-    cursor: pointer;
-    height: 2.813rem;
-    border-radius: 1.875rem;
-    color: #056AD9;
-    border: 1px solid #056AD9;
-    transition: color 0.3s ease-in-out;
-}
-
-    .calcular::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        color: black;
-        background: #056AD9;
-        z-index: 1;
-        transition: left 0.3s ease-in-out;
-    }
-
-    .calcular:hover::before {
-        left: 0;
-    }
-
-    .calcular:hover {
-        color: white;
-    }
-
-    .calcular span {
-        position: relative;
-        z-index: 2;
-    }
-
-@media (min-width: 768px) {
-    html {
-        font-size: 1rem;
-    }
-}
-
-hr {
-    flex: 1;
-    border: none;
+.card-image {
+    width: 100%;
+    height: 56.25rem;
 }
 
 .total {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.25rem;
+    margin-right: 3.125rem;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.titulo-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.875rem;
 }
 
-html {
-    position: relative;
-    min-height: 100%;
+    .titulo-img hr {
+        color: black;
+        height: 3px;
+        width: 5rem;
+    }
+
+    .titulo-img img {
+        width: 2.875rem;
+        height: 2.875rem;
+    }
+
+.titulo-text {
+    width: 25rem;
+}
+
+.titulo h1 {
+    font-weight: 600;
+    font-size: 2.375rem;
+    line-height: 2.813rem;
+}
+
+form label {
+    font-weight: 500;
+    font-size: 0.938rem;
+    line-height: 1.125rem;
+}
+
+form input {
+    width: 25rem;
+    height: 2.688rem;
+    border-radius: 0.625rem;
+    padding-left: 0.625rem;
+    border: 0.125rem solid #021124;
+}
+
+form {
+    width: 28.125rem;
+    gap: 1.563rem;
+}
+
+.buttons button {
+    border-radius: 0.625rem;
+    width: 12.188rem;
+    height: 2.688rem;
+    margin-top: 1.563rem;
+}
+
+.buttons .button-result {
+    background-color: black;
+    color: white;
+    margin-left: 0.5rem;
+}
+
+.buttons .button-trash {
+    background-color: white;
+    color: black;
+    border: 0.125rem solid black;
 }
 
 .footer {
-    background-color: #056AD9;
+    display: flex;
+    margin-top: 1.625rem;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    width: 100%;
+    height: 2rem;
 }
 
-body {
-    margin-bottom: 3.75rem;
-    background-color: #FFF;
+    .footer span {
+        color: #FFF;
+    }
+
+@media (max-width: 768px) {
+    html {
+        font-size: 1rem;
+    }
+
+    .card-form {
+        margin-top: 0;
+    }
+
+    .card-image {
+        display: none;
+    }
 }
