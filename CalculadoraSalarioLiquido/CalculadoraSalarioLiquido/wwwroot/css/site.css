@@ -1,26 +1,32 @@
-html {
-    position: relative;
-    min-height: 100%;
-    font-size: 0.875rem;
-}
-
+html,
 body {
-    margin-bottom: 3.75rem;
+    margin: 0;
+    padding: 0;
     background-color: #FFF;
 }
 
 main {
     display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 
 .card-form {
-    margin-top: 3.75rem;
+    width: 40%;
+    padding-top: 2rem;
+    box-sizing: border-box;
 }
 
 .card-image {
-    width: 100%;
-    height: 56.25rem;
+    width: 50%;
+    height: 100%;
 }
+
+    .card-image img {
+        width: 100%;
+        height: 100%;
+    }
 
 .total {
     display: flex;
@@ -57,19 +63,23 @@ main {
     line-height: 2.813rem;
 }
 
-form label {
-    font-weight: 500;
-    font-size: 0.938rem;
-    line-height: 1.125rem;
+form {
+    margin-bottom: 1rem;
 }
 
-form input {
-    width: 25rem;
-    height: 2.688rem;
-    border-radius: 0.625rem;
-    padding-left: 0.625rem;
-    border: 0.125rem solid #021124;
-}
+    form label {
+        font-weight: 500;
+        font-size: 0.938rem;
+        line-height: 1.125rem;
+    }
+
+    form input {
+        width: 25rem;
+        height: 2.688rem;
+        border-radius: 0.625rem;
+        padding-left: 0.625rem;
+        border: 0.125rem solid #021124;
+    }
 
 form {
     width: 28.125rem;
@@ -80,7 +90,7 @@ form {
     border-radius: 0.625rem;
     width: 12.188rem;
     height: 2.688rem;
-    margin-top: 1.563rem;
+    margin-top: 0.5rem;
 }
 
 .buttons .button-result {
@@ -97,7 +107,6 @@ form {
 
 .footer {
     display: flex;
-    margin-top: 1.625rem;
     align-items: center;
     justify-content: center;
     background-color: black;
@@ -112,10 +121,6 @@ form {
 @media (max-width: 768px) {
     html {
         font-size: 1rem;
-    }
-
-    .card-form {
-        margin-top: 0;
     }
 
     .card-image {

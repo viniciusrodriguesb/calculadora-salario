@@ -6,7 +6,6 @@
 
 <div class="card-form">
     <div class="titulo">
-
         <div class="titulo-img">
             <img src="~/assets/money.png" alt="Dinheiro">
             <h1>Calcule seu salário</h1>
@@ -19,53 +18,55 @@
             <p>Faça o cálculo agora mesmo e tenha controle sobre seus vencimentos!</p>
         </div>
     </div>
-    <div>
-        <form action="/" method="post">
-            <div class="mb-3">
-                <label for="salarioBruto" class="form-label titulo-label">Salário bruto*</label>
-                <div>
-                    <input type="text" id="SalarioBase" asp-for="SalarioBase" placeholder="    Ex: 4.856,93" />
-                </div>
+    <form action="/" method="post">
+        <div class="mb-3">
+            <label for="salarioBruto" class="form-label titulo-label">Salário bruto*</label>
+            <div>
+                <input type="text" id="SalarioBase" asp-for="SalarioBase" placeholder="    Ex: 4.856,93" />
             </div>
+        </div>
 
-            <div class="mb-3">
-                <label for="horas50" class="form-label titulo-label">Horas 50%</label>
-                <div>
-                    <input type="text" id="HorasCinquentaPorcento" asp-for="HorasCinquentaPorcento" placeholder="    Ex: 10" />
-                </div>
+        <div class="mb-3">
+            <label for="horas50" class="form-label titulo-label">Horas 50%</label>
+            <div>
+                <input type="text" id="HorasCinquentaPorcento" asp-for="HorasCinquentaPorcento" placeholder="    Ex: 10" />
             </div>
+        </div>
 
-            <div class="mb-3">
-                <label for="horas100" class="form-label titulo-label">Horas 100%</label>
-                <div>
-                    <input type="text" id="HorasCemPorcento" asp-for="HorasCemPorcento" placeholder="    Ex: 5" />
-                </div>
+        <div class="mb-3">
+            <label for="horas100" class="form-label titulo-label">Horas 100%</label>
+            <div>
+                <input type="text" id="HorasCemPorcento" asp-for="HorasCemPorcento" placeholder="    Ex: 5" />
             </div>
+        </div>
 
+        <div class="mt-4 total">
+            <p><strong>Total:</strong></p>
             @if (ViewBag.SalarioLiquido != null)
             {
-                <div class="mt-4 total">
-                    <p><strong>Total:</strong></p>
-                    <p><strong>R$ @ViewBag.SalarioLiquido</strong></p>
-                </div>
+                <p><strong>R$ @ViewBag.SalarioLiquido</strong></p>
             }
+            else
+            {
+                <p><strong>R$ 0,00</strong></p>
+            }
+        </div>
 
-            <div class="buttons">
-                <button class="button-trash">
-                    Limpar
-                    <img src="~/assets/trash.png" alt="Lixeira">
-                </button>
-                <button class="button-result" type="submit">
-                    <img src="~/assets/cifrao.png" alt="Cifrão">
-                    Calcular
-                </button>
-            </div>
-        </form>
-    </div>
+        <div class="buttons">
+            <button class="button-trash">
+                Limpar
+                <img src="~/assets/trash.png" alt="Lixeira">
+            </button>
+            <button class="button-result" type="submit">
+                <img src="~/assets/cifrao.png" alt="Cifrão">
+                Calcular
+            </button>
+        </div>
+    </form>
 
-    <footer class="footer text-muted">
+    <div class="footer text-muted">
         <span>&copy; 2025 - Todos os direitos reservados.</span>
-    </footer>
+    </div>
 
 </div>
 <div class="card-image">
